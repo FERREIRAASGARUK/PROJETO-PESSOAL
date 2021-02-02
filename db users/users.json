@@ -1,0 +1,63 @@
+{
+  "users": [
+    {
+      "firstName": "João da silva peixoto ",
+      "lastName": "FERREIRA DE SOUZA",
+      "contato": "62994922487",
+      "email": "marcusviniciusmatarazzo@gmail.com",
+      "senha": "123321123",
+      "id": 1
+    },
+    {
+      "firstName": "MARCUS VINICIUS MATARAZZO ",
+      "lastName": "FERREIRA DE SOUZA",
+      "contato": "62994922487",
+      "email": "marcusviniciusmtarazzo@gmail.com",
+      "senha": "123123123",
+      "id": 2
+    },
+    {
+      "firstName": "usuario",
+      "lastName": "teste",
+      "email": "capitaoasgaruk@gmail.com",
+      "senha": "6VX8S222222",
+      "Contato": 199010309102,
+      "id": 3
+    },
+    {
+      "firstName": "MARCUS VINICIUS MATARAZZO ",
+      "lastName": "FERREIRA DE SOUZA",
+      "email": "Byteoperacional@gmail.com",
+      "senha": "6VX8S222222",
+      "Contato": 62994929487,
+      "id": 4
+    },
+    {
+      "firstName": "MARCUS VINICIUS MATARAZZO ",
+      "lastName": "FERREIRA DE SOUZA",
+      "email": "marcusviniciusmarazzo@gmail.com",
+      "senha": "6VX8S222222222222",
+      "Contato": 333333333333333300,
+      "id": 5
+    },
+    {
+      "firstName": "VINICIUS",
+      "lastName": " FERREIRA",
+      "email": "marcusviniciustarazzo@gmail.com",
+      "senha": "123321123",
+      "Contato": 62994922487,
+      "id": 6
+    },
+    {
+      "id": 7
+    },
+    {
+      "title": "Notebook Gamer Acer Nitro 5 AN515-54-58CL Intel Core i5 8GB 1TB HD 128GB SSD GTX 1650 15.6'",
+      "price": 113.33123,
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61IP%2BRNgTKL._AC_SL1500_.jpg",
+      "url": "https://www.amazon.com.br/Fones-Ouvido-Xiaomi-AirDots-Lan%C3%A7amento/dp/B087N2DZFQ/ref=pd_vtp_4?pd_rd_w=Ad3uc&pf_rd_p=457ecbe4-62ec-458e-93c5-9db268725194&pf_rd_r=YWR7PV3ZMBHD7C19TCF6&pd_rd_r=31db630e-c6c8-42f7-bfa1-66c90f1259b7&pd_rd_wg=TnxgZ&pd_rd_i=B087N2DZFQ&psc=1",
+      "usuario": "marcusviniciusmtarazzo@gmail.com",
+      "id": 8
+    }
+  ]
+}
