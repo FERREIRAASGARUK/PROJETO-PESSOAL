@@ -6,8 +6,7 @@ import { IconButton, Paper } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCart from '@material-ui/icons/ShoppingCartOutlined';
 import Popover from '@material-ui/core/Popover';
-import AddCircleIcon from '@material-ui/icons/AddCircle';
-import Remove from '@material-ui/icons/RemoveCircle';
+import Trash from '@material-ui/icons/RemoveShoppingCart'
 import Button from '@material-ui/core/Button';
 import Btn from './Button/Button2';
 import Botao from './Button/Button';
@@ -17,6 +16,7 @@ import classes from './estilo';
 import { Produtos } from '../Hooks/Produtos';
 import api from '../../Services/userServer';
 import Api from '../../Services/products';
+import { SettingsEthernet } from '@material-ui/icons';
 
 const Header = () => {
   const user = useContext(Usuario);
@@ -28,39 +28,25 @@ const Header = () => {
   const [Open, setOpen] = useState(false);
   const [elemento, setElementos] = useState([]);
   const [total, setTotal] = useState();
-  
-  const carrinho = [];
-const [produtos, setProdutos] = useState([carrinho])
-
-
-
-
-
-
-
-
-
-
-
-
+  const [value, setValue] = useState()
+  let aux = 0
 
   const handleClose = () => {
     setOpen(false);
   };
-    async function aumentar(indice){
-        let a = 0;
-        a = a+1;
-   
-        await Api.put(`/products/${indice}`,{quantidade : 3})
-        
-     
+  async function remover(indice, price) {
+    console.log(total)
+    console.log('removendo' + indice)
+    // await Api.delete(`/products/${indice}`)
+    setTotal(total - price)
+
+
+
+
   }
-    function diminuir(indice){
-    let b = 0;
-    b = b-1
-    carrinho[indice].quantidade = b
-    setProdutos(carrinho)
-  }
+  useEffect(() => {
+
+  }, [])
 
   function setar(event) {
     setSearch(event.target.value);
@@ -73,26 +59,45 @@ const [produtos, setProdutos] = useState([carrinho])
   function Verificar() {
     return user.valid ? <Botao /> : <Btn />;
   }
+
   async function cart() {
     const id = JSON.parse(localStorage.getItem('login'));
     const prods = await Api.get('/products  ');
     const prodsValids = prods.data;
-    setElementos(prodsValids);
+    const produtos = prodsValids.filter(e => {
+      return (
+        e.usuario === id.id
+      )
+    })
+
+    produtos ? setElementos(produtos) : setElementos(null);
+    produtos.map(e => setTotal(total + e.price))
+
+    console.log(total)
+
   }
 
-  // const Total = () => {
 
-  //   let prices = [];
-  //   prices = elemento.map(e => e.price)
-  //   // setTotal(prices.reduce((a, b) => a + b))
 
-  // }
+
+
 
   const abrir = () => {
     setOpen(true);
+  }
 
-    cart();
-  };
+  useEffect(() => {
+    return (cart()
+
+    )
+
+  }, [])
+
+
+
+
+
+
 
   return (
     <div>
@@ -134,12 +139,13 @@ const [produtos, setProdutos] = useState([carrinho])
         {console.log(elemento)}
         <Popover open={Open} onClose={handleClose} className={estilo.carrinho}>
           {elemento &&
-            elemento.map((e,i) => (
-            
+            elemento.map((e) =>
+
+
+            (
+
               <div>
-                { 
-                carrinho.push(e)
-                }
+
                 <div className={estilo.produto}>
                   <img
                     className={estilo.image}
@@ -163,18 +169,15 @@ const [produtos, setProdutos] = useState([carrinho])
                         justifyContent: 'space-between',
                       }}
                     >
-                      <IconButton onClick={() => aumentar(i) } className={estilo.btn}>
-                        <AddCircleIcon />
-                      </IconButton>
-                      <IconButton onClick={() => diminuir(i) } className={estilo.btn2}>
-                        <Remove />
+                      <IconButton onClick={() => remover(e.id, e.price)} className={estilo.btn}>
+                        <Trash color='secondary' />
                       </IconButton>
                     </div>
 
                     <div className={estilo.valor}>
                       <Typography style={{ fontWeight: 1000 }}>
                         R$
-                        {e.price*carrinho[i].quantidade}
+                        {e.price}
                       </Typography>
                     </div>
                   </div>
@@ -183,20 +186,20 @@ const [produtos, setProdutos] = useState([carrinho])
             ))}
 
           <div className={estilo.footer}>
-            <Button
-              variant="contained"
-              style={{
-                background: '#00FF00',
-                marginLeft: 30,
-                marginTop: 30,
-                width: 133,
-                height: 33,
-              }}
-            >
-              Finalizar
-            </Button>
+            {
+              elemento ?
+                <Button
+                  variant="contained"
+                  className={estilo.finalizar}
+                >
+                  Finalizar
+            </Button> :
+                <div className={estilo.vazio}>
+                  Você ainda não tem produtos no carrinho
+                </div>
+            }
 
-            <Typography style={{ marginTop: 30 }}> Total:R$</Typography>
+            <Typography style={{ marginTop: 30 }}> Total:R${total}</Typography>
           </div>
         </Popover>
 

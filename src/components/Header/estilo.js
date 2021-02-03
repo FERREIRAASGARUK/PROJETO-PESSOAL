@@ -13,6 +13,22 @@ const estilo = makeStyles({
   cart: {
     marginTop: '2%',
   },
+  vazio: {
+    background: 'white',
+    marginLeft: 30,
+    marginTop: 30,
+    width: 133,
+    height: 33,
+  },
+  finalizar:
+  {
+    background: '#00FF00',
+    marginLeft: 30,
+    marginTop: 30,
+    width: 133,
+    height: 33,
+  },
+
   carrinho: {
     display: 'flex',
     alignItems: 'flex-start',
