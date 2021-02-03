@@ -3,6 +3,6 @@
 		"json-server": "^0.16.3"
 	},
 	"scripts": {
-		"start": "json-server --watch products.json --port 3005"
+		"start": "json-server --watch products.json --port 2000"
 	}
 }

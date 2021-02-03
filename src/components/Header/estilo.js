@@ -34,7 +34,7 @@ const estilo = makeStyles({
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
     height: 500,
-    marginLeft: 800,
+    marginLeft:'70%',
     marginTop: '5%',
     borderRadius: 10,
     width: 900,

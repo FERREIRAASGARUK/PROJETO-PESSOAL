@@ -146,7 +146,7 @@ const Login = () => {
             label="Senha"
             required
             id="senha"
-            type="senha"
+            type="password"
             name="senha"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}

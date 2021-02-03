@@ -82,6 +82,7 @@ const Formulario = () => {
     onSubmit: async (values) => {
       const dataStr = localStorage.getItem('login');
       const data = JSON.parse(dataStr);
+
       let email;
       email = data.email;
 
@@ -90,10 +91,10 @@ const Formulario = () => {
       const datas = await api.get('/promotions');
       const promo = datas.data;
       const prod = promo.filter((e) => e.imageUrl === values.imageUrl);
-
+       
       async function verificar() {
         if (prod.length === 0) {
-          await api.post('/promotions', { ...values, usuario: email });
+          await api.post('/promotions', { ...values, quantidade: 1, usuario: email });
           msg = 'Produto cadastrado';
           ret = 'success';
         } else {

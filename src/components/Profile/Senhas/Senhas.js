@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import MuiAlert from '@material-ui/lab/Alert';
 import { useFormik } from 'formik';
 import { TextField, Button } from '@material-ui/core';
@@ -20,6 +20,9 @@ function Senhas() {
   const [Aberto, setAberto] = useState();
   const vertical = 'top';
   const horizontal = 'left';
+  const [retorno, setRetorno] = useState(0)
+  const [user,setUser] = useState()
+
 
   function abrir() {
     setAberto(true);
@@ -30,12 +33,17 @@ function Senhas() {
 
   const formik = useFormik({
     initialValues: {
+      email:'',
       senhaAtual: '',
       senhaNova: '',
       senhaConfirmada: '',
     },
 
     validationSchema: Yup.object({
+      email: Yup.string()
+      .email(<Typography color="error">Digite um email válido</Typography>) 
+      .required(<Typography color="error">este campo precisa ser preenchido</Typography>)
+      ,
       senhaAtual: Yup.string()
         .min(
           8,
@@ -64,41 +72,52 @@ function Senhas() {
           <Typography color="error">As senhas precisam ser iguais</Typography>
         ),
     }),
-    onSubmit: async (values) => {
-      const id = localStorage.getItem('login');
-      const Id = JSON.parse(id);
-      const response = await api.get(`http://localhost:3002/users/${Id.id}`);
-      const resposta = response.data;
-      let retorno;
-      let mensagem;
+    onSubmit: (values) => {
+        let dados;
+        let usuarios = [];
+        let usuario;
 
-      /// /FAZER ATUALIZAÇÃO DE SENHA NO DB USERS E NO LOCALSTORAGE
+        
+         
 
-      resposta.senha === values.senhaAtual
-      && values.senhaAtual === resposta.senhaConfirmada
-        ? (mensagem = 'Senha atualizada')
-        : (mensagem = 'A senha atual está incorreta');
-      resposta.senha === values.senhaAtual
-      && values.senhaAtual === resposta.senhaConfirmada
-        ? (retorno = 'success')
-        : (retorno = 'error');
-      setMsg(mensagem);
-      setResult(retorno);
 
-      resposta.senha === values.senhaAtual
-        && (resposta.senha = values.senhaNova);
-      alert(JSON.stringify(resposta));
-      async function trocar() {
-        await api.post('http://localhost:3002/users', resposta);
-      }
 
-      resposta.senha === values.senhaAtual && trocar();
-    },
+       async function buscar(){
+          dados = await api.get('/users')
+          usuarios =  dados.data;
+          usuario =  usuarios.filter( e => {
+          
+            
+           return(
+           e.email === values.email && e.senha === values.senhaAtual)
+         })
 
-    // // resposta.email === values.email && alert('teste')
-    // alert(JSON.stringify(resposta))
+
+
+         usuario[0] && (usuario[0].senha = values.senhaNova);
+         
+
+        usuario[0]  && setUser(usuario[0])
+        usuario[0] ? setResult('success'): setResult('error')
+        usuario[0]&& setRetorno(retorno+1)
+        usuario[0] ? setMsg('Senha alterada') : setMsg('Email ou senha estão incorretos')
+        async function postar(){
+            
+         return(await api.put(`/users/${user.id}`,user))
+        }
+         usuario[0]&& postar()
+       }
+        
+
+        buscar()
+        
+       alert(JSON.stringify(usuario))
+        
+        }
+        
+
   });
-
+     
   return (
     <div className={classes.root}>
       <Snackbar
@@ -114,12 +133,32 @@ function Senhas() {
       <form onSubmit={formik.handleSubmit} className={classes.form}>
         <h1 className={classes.titulo}>TROQUE SUA SENHA</h1>
         <TextField
+          placeholder=" Email"
+          variant="outlined"
+          label="Email"
+          required
+          id="text"
+          type="email"
+          name="email"
+          autoFocus
+          fullWidth
+          margin="normal"
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.email}
+          className={classes.input}
+        />
+        {formik.touched.senhaAtual && formik.errors.email ? (
+          <div>{formik.errors.email}</div>
+        ) : null}
+
+        <TextField
           placeholder="Senha atual"
           variant="outlined"
           label="Senha Atual"
           required
           id="text"
-          type="text"
+          type="password"
           name="senhaAtual"
           autoFocus
           fullWidth
@@ -139,7 +178,7 @@ function Senhas() {
           label="Nova senha"
           required
           id="text"
-          type="text"
+          type="password"
           name="senhaNova"
           autoFocus
           fullWidth

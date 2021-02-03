@@ -16,37 +16,43 @@ import classes from './estilo';
 import { Produtos } from '../Hooks/Produtos';
 import api from '../../Services/userServer';
 import Api from '../../Services/products';
-import { SettingsEthernet } from '@material-ui/icons';
-
+import MuiAlert from '@material-ui/lab/Alert';
+import Snackbar from '@material-ui/core/Snackbar'
 const Header = () => {
+
+
+   function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+  }
+
+  let soma = 0;
   const user = useContext(Usuario);
   const Prod = useContext(Produtos);
+  const vertical = 'top';
+  const horizontal = 'right';
+  const [Aberto, setAberto] = useState(false);
   const history = useHistory();
   const estilo = classes();
   const contexto = useContext(Contexto);
   const [search, setSearch] = useState('');
   const [Open, setOpen] = useState(false);
   const [elemento, setElementos] = useState([]);
-  const [total, setTotal] = useState();
-  const [value, setValue] = useState()
-  let aux = 0
+  const [total, setTotal] = useState(0);
+  const [value, setValue] = useState(0)
+  const Cart = useContext(Produtos);
 
   const handleClose = () => {
     setOpen(false);
   };
-  async function remover(indice, price) {
-    console.log(total)
-    console.log('removendo' + indice)
-    // await Api.delete(`/products/${indice}`)
-    setTotal(total - price)
-
-
-
-
+  async function remover(elemento) {
+    
+    await Api.delete(`/products/${elemento.id}`)
+     setValue(value + 1)
   }
-  useEffect(() => {
+    function fechar() {
+    setAberto(false);
+  }
 
-  }, [])
 
   function setar(event) {
     setSearch(event.target.value);
@@ -62,38 +68,37 @@ const Header = () => {
 
   async function cart() {
     const id = JSON.parse(localStorage.getItem('login'));
-    const prods = await Api.get('/products  ');
+    const prods = await Api.get('/products');
     const prodsValids = prods.data;
     const produtos = prodsValids.filter(e => {
       return (
-        e.usuario === id.id
+        e.Usuario === id.id
+        
       )
     })
 
     produtos ? setElementos(produtos) : setElementos(null);
-    produtos.map(e => setTotal(total + e.price))
-
-    console.log(total)
-
+   
   }
 
-
-
+ 
 
 
 
   const abrir = () => {
-    setOpen(true);
+    user.valid ? setOpen(true) : setAberto(true)
+    
+    
+    return(
+    setValue(value + 1))
+    
   }
-
+  
   useEffect(() => {
-    return (cart()
-
-    )
-
-  }, [])
-
-
+    cart()
+    
+    
+  }, [value])
 
 
 
@@ -101,6 +106,17 @@ const Header = () => {
 
   return (
     <div>
+       <Snackbar
+          anchorOrigin={{ vertical, horizontal }}
+          open={Aberto}
+          onClose={fechar}
+          autoHideDuration={5000}
+        >
+          <Alert severity='error'>
+            <div>{'Faça login para acessar o carrinho de compras'}</div>
+          </Alert>
+        </Snackbar>
+
       <Grid className={estilo.header} container spacing={0}>
         <Grid item xs={2}>
           <Link
@@ -169,7 +185,7 @@ const Header = () => {
                         justifyContent: 'space-between',
                       }}
                     >
-                      <IconButton onClick={() => remover(e.id, e.price)} className={estilo.btn}>
+                      <IconButton onClick={() => remover(e)} className={estilo.btn}>
                         <Trash color='secondary' />
                       </IconButton>
                     </div>
@@ -177,7 +193,7 @@ const Header = () => {
                     <div className={estilo.valor}>
                       <Typography style={{ fontWeight: 1000 }}>
                         R$
-                        {e.price}
+                        {(e.price*e.quantidade).toFixed(4)}
                       </Typography>
                     </div>
                   </div>
@@ -199,7 +215,7 @@ const Header = () => {
                 </div>
             }
 
-            <Typography style={{ marginTop: 30 }}> Total:R${total}</Typography>
+           
           </div>
         </Popover>
 

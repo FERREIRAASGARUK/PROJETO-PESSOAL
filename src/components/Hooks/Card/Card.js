@@ -9,6 +9,7 @@ import Api from '../../../Services/products';
 import classe from './style';
 import { Produtos } from '../Produtos';
 import { Usuario } from '../../Form Login/index';
+import users from '../../../Services/userServer';
 
 function Card() {
   const User = useContext(Usuario);
@@ -31,18 +32,49 @@ function Card() {
     const response = await api.get(urls);
     setCards(response.data);
   }
-
-  async function adicionar(props) {
+    async function adicionar(props) {
 
     const currentUser = JSON.parse(localStorage.getItem('login'));
-    const ID = currentUser.id;
-    props.usuario = ID;
-    props.quantidade = 1
-    User.valid
-      ? await Api.post('http://localhost:3005/products',props)
-      : alert('faça login');
-  }
+    const validar = await Api.get(`/products`)
+    const semelhante = validar.data.filter( e =>{
+     return(e.title === props.title && currentUser.id === e.Usuario)
+    })
+    
+    console.log(semelhante)
+    
+    props.Usuario = currentUser.id;
+  
+ 
+    async function atualizar(){ 
+        props.quantidade =  props.quantidade + 1
+        Cart.setProduto(props.quantidade)
+        console.log(Cart.produto)
+    return ( 
+     
+      await Api.put(`http://localhost:2000/products/${props.id}`,props)
+      
+      )}
 
+  
+      async function postar(){ 
+          props.id = props.id+10
+          Cart.setProduto(props.quantidade)
+          console.log(Cart.produto)
+    return ( 
+
+      await Api.post(`http://localhost:2000/products`,props)
+      )}
+
+
+    User.valid &&                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+    semelhante.length >= 1 ? atualizar()  :  postar();
+    
+    
+    
+    
+      
+    
+  }
   return (
     <div>
       <Grid className={estilo.pai} container spacing={1} direction="row">
