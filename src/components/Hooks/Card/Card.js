@@ -48,7 +48,7 @@ function Card() {
     async function atualizar(){ 
         props.quantidade =  props.quantidade + 1
         Cart.setProduto(props.quantidade)
-        console.log(Cart.produto)
+        console.log(Cart.p)
     return ( 
      
       await Api.put(`http://localhost:2000/products/${props.id}`,props)

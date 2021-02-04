@@ -9,6 +9,10 @@ import Settings from '../components/Profile/Setings/Settings';
 import PrivateRoute from './privateRout.';
 import { Validar } from '../components/Form Login/index';
 import Senhas from '../pages/password update/index.js';
+import { VerificarProdutos } from '../components/Profile/Profile/Produtos/produtos';
+import {Profile } from '../components/Profile/Setings/Settings'
+import Cart from '../components/Cart/index'
+
 
 export const Contexto = createContext();
 
@@ -20,13 +24,18 @@ const Root = () => {
       <Switch>
         <Contexto.Provider value={{ pesquisa, setPesquisa }}>
           <Validar>
-            <PrivateRoute exact path="/Settings" component={Settings} />
-            <PrivateRoute exact path="/Perfil" component={Perfil} />
-            <PrivateRoute exact path="/Criar" component={FormProducts} />
-            <Route exact path="/" component={Home} />
-            <Route exact path="/Register" component={FormUser} />
-            <Route exact path="/Login" component={Sign} />
-            <Route exact path="/Senha" component={Senhas} />
+            <VerificarProdutos>
+              <Profile>
+                <PrivateRoute exact path="/Settings" component={Settings} />
+                <PrivateRoute exact path="/Perfil" component={Perfil} />
+                <PrivateRoute exact path="/Criar" component={FormProducts} />
+                <PrivateRoute exact path='/Cart' component={Cart}/>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/Register" component={FormUser} />
+                <Route exact path="/Login" component={Sign} />
+                <Route exact path="/Senha" component={Senhas} />
+              </Profile>
+            </VerificarProdutos>
           </Validar>
         </Contexto.Provider>
       </Switch>

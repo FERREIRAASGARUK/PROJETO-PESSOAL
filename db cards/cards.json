@@ -1,13 +1,12 @@
 {
   "promotions": [
     {
-   
       "id": 1,
       "title": "Kit Notebook Acer Aspire 3 + Mochila Green, A315-41-R790, AMD Ryzen 3 2200U Dual Core",
       "price": 1799,
       "imageUrl": "https://cdn.gatry.com/gatry-static/promocao/imagem_url/2631517face1861bc4f46ae154d387de.png",
       "url": "https://www.amazon.com.br/Notebook-Acer-Mochila-A315-41-R790-Mem%C3%B3ria/dp/B07YDWLV7S/ref=as_li_ss_tl?ie=UTF8&linkCode=sl1&tag=gatry0b-20&linkId=e4a1146599e36741a720a6a952cbc328&language=pt_BR",
-      "quantidade":1
+      "quantidade": 1
     },
     {
       "id": 2,
@@ -15,7 +14,7 @@
       "price": 2.87999,
       "imageUrl": "https://a-static.mlcdn.com.br/1500x1500/smartphone-samsung-galaxy-note-10-256gb-prata-4g-8gb-ram-63-cam-tripla-cam-selfie-10mp/magazineluiza/155559400/ea1a8f1b6368924292053e71c2d8b8d1.jpg",
       "url": "https://www.magazineluiza.com.br/smartphone-samsung-galaxy-note-10-256gb-prata-4g-8gb-ram-63-cam-tripla-cam-selfie-10mp/p/155559400/te/g10p/",
-      "quantidade":1
+      "quantidade": 1
     },
     {
       "id": 3,
@@ -23,7 +22,7 @@
       "price": 119.99,
       "imageUrl": "https://cdn.gatry.com/gatry-static/promocao/imagem/fe0a1e4ddcbd8f9a99a05908b6d29ea2.png",
       "url": "https://www.zariff.com.br/sapatenis-casual-west-coast-ravello-canvas-202704-preto",
-      "quantidade":1
+      "quantidade": 1
     },
     {
       "id": 4,
@@ -31,7 +30,7 @@
       "price": 699.9,
       "imageUrl": "https://cdn.gatry.com/gatry-static/promocao/imagem_url/9c4b176eb52bb4877e853cf36393d8fc.jpg",
       "url": "https://www.kabum.com.br/404?error=2",
-      "quantidade":1
+      "quantidade": 1
     },
     {
       "id": 5,
@@ -39,15 +38,15 @@
       "price": 4.3991,
       "imageUrl": "https://acerstore.vteximg.com.br/arquivos/ids/156817-760-760/AN515-54.jpg?v=637257706315470000",
       "url": "https://br-store.acer.com/notebook-acer-an515-54-58cl-ci59300h-8gb-nva-4gb-128gb-ssd-1tb-hdd-elinux-black-fhd-15-6-nh-q6pal-00b/p?awc=18878_1609956385_00c8ef05a45134bc578d7c0a389e20e2&utm_source=Awin&utm_source=aw&awc=15530_1609957709_08fe915388912b03ce31a276d953cd69&utm_medium=Awin&utm_campaign=667929",
-      "quantidade":1
+      "quantidade": 1
     },
     {
       "title": "Cadeira de Escritório com Base Cromada - 9050 - Marketplace",
-      "price": 199.90,
+      "price": 199.9,
       "imageUrl": "https://cdn.gatry.com/gatry-static/promocao/imagem/ca4e79719a34ee6402c64c69f2f46f2f.png",
       "url": "https://www.pontofrio.com.br/Moveis/escritorio/CadeirasdeEscritorio/cadeira-de-escritorio-com-base-cromada-9050-1500950835.html?utm_medium=cpc&utm_source=GP_PLA&IdSku=1500950835&idLojista=11578&utm_campaign=3p_shopping-full&gclid=Cj0KCQiA3NX_BRDQARIsALA3fILDWjrarHgJf4Pu4_9mnoGQT44NutLdNoyEr256GfR7csalE09XsFYaAvZREALw_wcB&utm_source=zanox&utm_term=667929&awc=17621_1609962252_ddf9caf38f011b16baeff5d8329cc102",
       "id": 6,
-      "quantidade":1
+      "quantidade": 1
     },
     {
       "title": "Notebook Gamer Acer Nitro 5 AN515-54-58CL Intel Core i5 8GB 1TB HD 128GB SSD GTX 1650 15.6'",
@@ -56,7 +55,7 @@
       "url": "https://www.amazon.com.br/Fones-Ouvido-Xiaomi-AirDots-Lan%C3%A7amento/dp/B087N2DZFQ/ref=pd_vtp_4?pd_rd_w=Ad3uc&pf_rd_p=457ecbe4-62ec-458e-93c5-9db268725194&pf_rd_r=YWR7PV3ZMBHD7C19TCF6&pd_rd_r=31db630e-c6c8-42f7-bfa1-66c90f1259b7&pd_rd_wg=TnxgZ&pd_rd_i=B087N2DZFQ&psc=1",
       "usuario": "marcusviniciusmtarazzo@gmail.com",
       "id": 8,
-      "quantidade":1
+      "quantidade": 1
     },
     {
       "title": "Notebook Gamer Acer Nitro 5 AN515-54-58CL Intel Co",
@@ -65,7 +64,7 @@
       "url": "https://br-store.acer.com/notebook-acer-an515-54-58cl-ci59300h-8gb-nva-4gb-128gb-ssd-1tb-hdd-elinux-black-fhd-15-6-nh-q6pal-00b/p?awc=18878_1609956385_00c8ef05a45134bc578d7c0a389e20e2&utm_source=Awin&utm_source=aw&awc=15530_1609958029_391ee51f660e3d5937548f0367f12a31&utm_medium=Awin&utm_campaign=667929",
       "usuario": "marcusviniciusmatarazzo@gmail.com",
       "id": 9,
-      "quantidade":1
+      "quantidade": 1
     },
     {
       "title": "Bicicleta South Hunter GT - Aro 29 - 21 Marchas - Freios a Disco - Suspensão Dianteira - Preto e Vermelho",
@@ -74,7 +73,7 @@
       "url": "https://www.netshoes.com.br/bicicleta-south-hunter-gt-aro-29-21-marchas-freios-a-disco-suspensao-dianteira-preto+vermelho-ACN-0076-002?campaign=gglepqpla&gclid=Cj0KCQiAjKqABhDLARIsABbJrGmfdi_oh3sjMGPBx6v47R8d1RNhqmY1cxL3XgXRbjSAEtfHHzFcd0caAqLCEALw_wcB&gclsrc=aw.ds",
       "usuario": "marcusviniciusmtarazzo@gmail.com",
       "id": 10,
-      "quantidade":1
+      "quantidade": 1
     },
     {
       "title": "TÊNIS MASCULINO SEM CADARÇO OLYMPIKUS WELLNESS",
@@ -83,7 +82,25 @@
       "url": "https://www.zariff.com.br/tenis-masculino-sem-cadarco-olympikus-wellness-wellness-preto",
       "usuario": "marcusviniciusmatarazzo@gmail.com",
       "id": 11,
-      "quantidade":1
+      "quantidade": 1
+    },
+    {
+      "title": "Bicicleta South Stark 2021 Aro 29 Alumínio Freio a disco Câmbio Importado 24 marchas - Azul e Preto",
+      "price": 1149,
+      "imageUrl": "https://static.netshoes.com.br/produtos/bicicleta-south-stark-2021-aro-29-aluminio-freio-a-disco-cambio-importado-24-marchas/08/ACN-0073-108/ACN-0073-108_zoom1.jpg?ts=1604401556&",
+      "url": "https://www.netshoes.com.br/bicicleta-south-stark-2021-aro-29-aluminio-freio-a-disco-cambio-importado-24-marchas-azul+preto-ACN-0073-108",
+      "quantidade": 1,
+      "usuario": "marcusviniciusmatarazzo@gmail.com",
+      "id": 12
+    },
+    {
+      "title": "Notebook Positivo Motion Q464B Intel Atom Quad core 4GB 64GB SSD + 64GB Nuvem 14\" W10 Vermelho",
+      "price": 1499,
+      "imageUrl": "https://images-americanas.b2w.io/produtos/01/00/img/1506964/1/1506964106_1GG.jpg",
+      "url": "https://www.americanas.com.br/produto/1506963998?pfm_carac=quem%20viu%20este%20produto%2C%20viu%20tamb%C3%A9m&pfm_pos=&pfm_type=vit_recommendation&DCSext.recom=RR_item_page.rr1-ClickEV&nm_origem=rec_item_page.rr1-ClickEV&nm_ranking_rec=1&voltagem=BIVOLT",
+      "quantidade": 1,
+      "usuario": "marcusviniciusmatarazzo@gmail.com",
+      "id": 13
     }
   ],
   "comments": [

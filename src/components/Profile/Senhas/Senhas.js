@@ -8,6 +8,7 @@ import Snackbar from '@material-ui/core/Snackbar';
 import estilo from './estyle';
 import api from '../../../Services/userServer';
 import { Usuario } from '../../Form Login/index';
+import  {profileImg} from '../Setings/Settings'
 
 function Senhas() {
   function Alert(props) {
@@ -15,6 +16,7 @@ function Senhas() {
   }
   const classes = estilo();
   const contexto = React.useContext(Usuario);
+  const profile = React.useContext(profileImg)
   const [msg, setMsg] = useState('');
   const [result, setResult] = useState('');
   const [Aberto, setAberto] = useState();
@@ -85,6 +87,7 @@ function Senhas() {
        async function buscar(){
           dados = await api.get('/users')
           usuarios =  dados.data;
+
           usuario =  usuarios.filter( e => {
           
             
@@ -94,25 +97,31 @@ function Senhas() {
 
 
 
-         usuario[0] && (usuario[0].senha = values.senhaNova);
-         
+        usuario[0] && (usuario[0].senha = values.senhaNova);
+       
 
         usuario[0]  && setUser(usuario[0])
         usuario[0] ? setResult('success'): setResult('error')
-        usuario[0]&& setRetorno(retorno+1)
+        usuario[0]&& setRetorno(retorno)
         usuario[0] ? setMsg('Senha alterada') : setMsg('Email ou senha estão incorretos')
+          usuario[0] && localStorage.setItem('login',(JSON.stringify(user)))
+        
         async function postar(){
             
-         return(await api.put(`/users/${user.id}`,user))
+         return(await api.put(`/users/${user.id}`,user)  )
+         
+         
         }
-         usuario[0]&& postar()
+          usuario[0]&& postar()
+         
+          
        }
         
 
         buscar()
         
        alert(JSON.stringify(usuario))
-        
+       
         }
         
 
@@ -120,6 +129,7 @@ function Senhas() {
      
   return (
     <div className={classes.root}>
+     
       <Snackbar
         anchorOrigin={{ vertical, horizontal }}
         open={Aberto}
@@ -131,6 +141,7 @@ function Senhas() {
         </Alert>
       </Snackbar>
       <form onSubmit={formik.handleSubmit} className={classes.form}>
+
         <h1 className={classes.titulo}>TROQUE SUA SENHA</h1>
         <TextField
           placeholder=" Email"

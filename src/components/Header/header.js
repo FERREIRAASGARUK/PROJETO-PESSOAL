@@ -6,7 +6,7 @@ import { IconButton, Paper } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCart from '@material-ui/icons/ShoppingCartOutlined';
 import Popover from '@material-ui/core/Popover';
-import Trash from '@material-ui/icons/RemoveShoppingCart'
+import DeleteIcon from '@material-ui/icons/Delete';
 import Button from '@material-ui/core/Button';
 import Btn from './Button/Button2';
 import Botao from './Button/Button';
@@ -25,7 +25,7 @@ const Header = () => {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
   }
 
-  let soma = 0;
+
   const user = useContext(Usuario);
   const Prod = useContext(Produtos);
   const vertical = 'top';
@@ -44,10 +44,35 @@ const Header = () => {
   const handleClose = () => {
     setOpen(false);
   };
+
+     async function atualizar(props){ 
+        props.quantidade =  props.quantidade -1
+        Cart.setProduto(props.quantidade)
+        
+    return ( 
+      
+      await Api.put(`http://localhost:2000/products/${props.id}`,props)
+      
+      )}
+
+        async function deletar(props){ 
+        props.quantidade =  props.quantidade -1
+        Cart.setProduto(props.quantidade)
+        
+        return ( 
+          
+          await Api.delete(`/products/${props.id}`)
+          
+          )}
+
+
   async function remover(elemento) {
     
-    await Api.delete(`/products/${elemento.id}`)
+    
      setValue(value + 1)
+     elemento.quantidade === 0 ? deletar(elemento) : atualizar(elemento)
+      
+
   }
     function fechar() {
     setAberto(false);
@@ -186,14 +211,14 @@ const Header = () => {
                       }}
                     >
                       <IconButton onClick={() => remover(e)} className={estilo.btn}>
-                        <Trash color='secondary' />
+                       <DeleteIcon/>
                       </IconButton>
                     </div>
 
                     <div className={estilo.valor}>
                       <Typography style={{ fontWeight: 1000 }}>
-                        R$
-                        {(e.price*e.quantidade).toFixed(4)}
+                        
+                        {(e.quantidade).toFixed(0)}
                       </Typography>
                     </div>
                   </div>

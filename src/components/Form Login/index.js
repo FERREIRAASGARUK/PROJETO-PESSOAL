@@ -39,7 +39,7 @@ const Login = () => {
   const horizontal = 'left';
   const classes = classe();
 
-  function abrir() {
+  function abrir(){
     setAberto(true);
   }
   function fechar() {

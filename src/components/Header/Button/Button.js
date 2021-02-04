@@ -8,6 +8,7 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import DraftsIcon from '@material-ui/icons/Drafts';
 import Person from '@material-ui/icons/Person';
 import Settings from '@material-ui/icons/Settings';
+import Shooping from '@material-ui/icons/ShoppingCartOutlined'
 import Lock from '@material-ui/icons/Lock';
 import Create from '@material-ui/icons/Create';
 import Exit from '@material-ui/icons/ExitToApp';
@@ -69,6 +70,14 @@ function Botao() {
               <Person fontSize="small" />
             </ListItemIcon>
             <ListItemText primary="Profile" />
+          </MenuItem>
+        </Link>
+        <Link className={classes.itens} to="/Cart">
+          <MenuItem>
+            <ListItemIcon>
+              <Shooping fontSize="small" />
+            </ListItemIcon>
+            <ListItemText primary="Carrinho" />
           </MenuItem>
         </Link>
         <Link className={classes.itens} to="/Settings">

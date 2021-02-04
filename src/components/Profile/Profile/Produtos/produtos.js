@@ -1,13 +1,32 @@
-import React, { useState } from 'react';
+import React, { createContext, useState , useContext, useEffect} from 'react';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Alert from '@material-ui/lab/Alert';
 import estilos from './estilo';
 import api from '../../../../Services/cardServer';
+import {Usuario} from '../../../Form Login/index'
+
+export const Products = createContext()
+
+
+export const VerificarProdutos = ( props) =>{
+
+const [storage,setStorage] = useState()
+
+  return(
+    <Products.Provider 
+      value={{storage,setStorage}}
+    >
+        {props.children}
+    </Products.Provider>
+  )
+}
 
 const Produtos = () => {
   const estilo = estilos();
+  const userContext =  useContext(Usuario)
+  const productsContext = useContext(Products)
   let produtos;
   let produto;
   let prod;
@@ -22,11 +41,22 @@ const Produtos = () => {
     prod = await api.get('/promotions');
     produtos = prod.data;
     produto = produtos.filter((e) => e.usuario === User.email);
+
     setProducts(produto);
+
+    
   }
+  useEffect(
+    ()=>{
+      products[0] ? productsContext.setStorage(true) : productsContext.setStorage(false)
+      console.log(products)
+    },[products[0]]
+    
+  )
   Buscar();
 
   return (
+   
     <div>
       <h1 style={{ fontFamily: 'Arial' }}>SEUS PRODUTOS CADASTRADOS</h1>
       <Grid className={estilo.pai} container spacing={0} direction="row">

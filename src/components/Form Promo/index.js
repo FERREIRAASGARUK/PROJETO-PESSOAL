@@ -111,7 +111,7 @@ const Formulario = () => {
 
   return (
     <div>
-      <Header />
+    
       <Snackbar
         anchorOrigin={{ vertical, horizontal }}
         open={Aberto}
