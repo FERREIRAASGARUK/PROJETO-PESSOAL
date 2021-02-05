@@ -1,22 +1,13 @@
 {
   "products": [
     {
-      "title": "Bicicleta South Hunter GT - Aro 29 - 21 Marchas - Freios a Disco - Suspensão Dianteira - Preto e Vermelho",
-      "price": 899.9,
-      "imageUrl": "https://static.netshoes.com.br/produtos/bicicleta-south-hunter-gt-aro-29-21-marchas-freios-a-disco-suspensao-dianteira/02/ACN-0076-002/ACN-0076-002_zoom1.jpg?ts=1604401416&",
-      "url": "https://www.netshoes.com.br/bicicleta-south-hunter-gt-aro-29-21-marchas-freios-a-disco-suspensao-dianteira-preto+vermelho-ACN-0076-002?campaign=gglepqpla&gclid=Cj0KCQiAjKqABhDLARIsABbJrGmfdi_oh3sjMGPBx6v47R8d1RNhqmY1cxL3XgXRbjSAEtfHHzFcd0caAqLCEALw_wcB&gclsrc=aw.ds",
-      "usuario": "marcusviniciusmtarazzo@gmail.com",
-      "id": 20,
-      "quantidade": 2,
-      "Usuario": 2
-    },
-    {
-      "id": 15,
-      "title": "Notebook Gamer Acer Nitro 5 AN515-54-58CL Intel Core i5 8GB 1TB HD 128GB SSD GTX 1650 15.6'",
-      "price": 4.3991,
-      "imageUrl": "https://acerstore.vteximg.com.br/arquivos/ids/156817-760-760/AN515-54.jpg?v=637257706315470000",
-      "url": "https://br-store.acer.com/notebook-acer-an515-54-58cl-ci59300h-8gb-nva-4gb-128gb-ssd-1tb-hdd-elinux-black-fhd-15-6-nh-q6pal-00b/p?awc=18878_1609956385_00c8ef05a45134bc578d7c0a389e20e2&utm_source=Awin&utm_source=aw&awc=15530_1609957709_08fe915388912b03ce31a276d953cd69&utm_medium=Awin&utm_campaign=667929",
+      "title": "Bicicleta South Stark 2021 Aro 29 Alumínio Freio a disco Câmbio Importado 24 marchas - Azul e Preto",
+      "price": 1149,
+      "imageUrl": "https://static.netshoes.com.br/produtos/bicicleta-south-stark-2021-aro-29-aluminio-freio-a-disco-cambio-importado-24-marchas/08/ACN-0073-108/ACN-0073-108_zoom1.jpg?ts=1604401556&",
+      "url": "https://www.netshoes.com.br/bicicleta-south-stark-2021-aro-29-aluminio-freio-a-disco-cambio-importado-24-marchas-azul+preto-ACN-0073-108",
       "quantidade": 1,
+      "usuario": "marcusviniciusmatarazzo@gmail.com",
+      "id": 15,
       "Usuario": 2
     }
   ]

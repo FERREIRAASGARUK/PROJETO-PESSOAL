@@ -19,7 +19,7 @@ const estilo = makeStyles({
     paddingRight: 0,
     width: '100%',
     paddingBotton: '0%',
-    height:200,
+    height: 200,
   },
   btn: {
     width: '30%',
@@ -30,7 +30,7 @@ const estilo = makeStyles({
     background: 'white',
     height: 333,
     marginTop: '10%',
-    color:'grey'
+    color: 'grey'
   },
 
   grid111: {
@@ -39,13 +39,13 @@ const estilo = makeStyles({
     justifyContent: 'space-around',
     marginTop: '5%',
   },
-    container:{
-    height:600,
-    background:'grey',
-    width:'100%',
-    display:'flex',
-    flexDirection:'center',
-    justifyContent:'center'
+  container: {
+    height: 600,
+    background: 'grey',
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'center',
+    justifyContent: 'center'
   },
 });
 

@@ -7,6 +7,7 @@ const classes = makeStyles({
     alignItems: 'center',
     marginTop: '10',
   },
+
   form: {
     width: '100%',
     marginTop: '3',

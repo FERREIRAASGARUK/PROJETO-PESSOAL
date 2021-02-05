@@ -8,7 +8,7 @@ import Snackbar from '@material-ui/core/Snackbar';
 import estilo from './estyle';
 import api from '../../../Services/userServer';
 import { Usuario } from '../../Form Login/index';
-import  {profileImg} from '../Setings/Settings'
+import { profileImg } from '../Setings/Settings'
 
 function Senhas() {
   function Alert(props) {
@@ -23,7 +23,7 @@ function Senhas() {
   const vertical = 'top';
   const horizontal = 'left';
   const [retorno, setRetorno] = useState(0)
-  const [user,setUser] = useState()
+  const [user, setUser] = useState()
 
 
   function abrir() {
@@ -35,7 +35,7 @@ function Senhas() {
 
   const formik = useFormik({
     initialValues: {
-      email:'',
+      email: '',
       senhaAtual: '',
       senhaNova: '',
       senhaConfirmada: '',
@@ -43,13 +43,13 @@ function Senhas() {
 
     validationSchema: Yup.object({
       email: Yup.string()
-      .email(<Typography color="error">Digite um email válido</Typography>) 
-      .required(<Typography color="error">este campo precisa ser preenchido</Typography>)
+        .email(<Typography color="error">Digite um email válido</Typography>)
+        .required(<Typography color="error">este campo precisa ser preenchido</Typography>)
       ,
       senhaAtual: Yup.string()
         .min(
           8,
-        <Typography color="error">digite no mínimo 8 caractéres</Typography>
+          <Typography color="error">digite no mínimo 8 caractéres</Typography>
         )
         .required(
           <Typography color="error">Este campo não pode ficar vazio</Typography>
@@ -58,7 +58,7 @@ function Senhas() {
       senhaNova: Yup.string()
         .min(
           8,
-        <Typography color="error">digite no mínimo 8 caractéres</Typography>
+          <Typography color="error">digite no mínimo 8 caractéres</Typography>
         )
         .required(
           <Typography color="error">Este campo não pode estar vazio</Typography>
@@ -67,7 +67,7 @@ function Senhas() {
       senhaConfirmada: Yup.string()
         .min(
           8,
-        <Typography color="error">Este campo não pode estar vazio</Typography>
+          <Typography color="error">Este campo não pode estar vazio</Typography>
         )
         .oneOf(
           [Yup.ref('senhaNova'), null],
@@ -75,61 +75,61 @@ function Senhas() {
         ),
     }),
     onSubmit: (values) => {
-        let dados;
-        let usuarios = [];
-        let usuario;
-
-        
-         
+      let dados;
+      let usuarios = [];
+      let usuario;
 
 
 
-       async function buscar(){
-          dados = await api.get('/users')
-          usuarios =  dados.data;
 
-          usuario =  usuarios.filter( e => {
-          
-            
-           return(
-           e.email === values.email && e.senha === values.senhaAtual)
-         })
+
+
+      async function buscar() {
+        dados = await api.get('/users')
+        usuarios = dados.data;
+
+        usuario = usuarios.filter(e => {
+
+
+          return (
+            e.email === values.email && e.senha === values.senhaAtual)
+        })
 
 
 
         usuario[0] && (usuario[0].senha = values.senhaNova);
-       
 
-        usuario[0]  && setUser(usuario[0])
-        usuario[0] ? setResult('success'): setResult('error')
-        usuario[0]&& setRetorno(retorno)
+
+        usuario[0] && setUser(usuario[0])
+        usuario[0] ? setResult('success') : setResult('error')
+        usuario[0] && setRetorno(retorno)
         usuario[0] ? setMsg('Senha alterada') : setMsg('Email ou senha estão incorretos')
-          usuario[0] && localStorage.setItem('login',(JSON.stringify(user)))
-        
-        async function postar(){
-            
-         return(await api.put(`/users/${user.id}`,user)  )
-         
-         
-        }
-          usuario[0]&& postar()
-         
-          
-       }
-        
+        usuario[0] && localStorage.setItem('login', (JSON.stringify(user)))
 
-        buscar()
-        
-       alert(JSON.stringify(usuario))
-       
+        async function postar() {
+
+          return (await api.put(`/users/${user.id}`, user))
+
+
         }
-        
+        usuario[0] && postar()
+
+
+      }
+
+
+      buscar()
+
+      alert(JSON.stringify(usuario))
+
+    }
+
 
   });
-     
+
   return (
     <div className={classes.root}>
-     
+
       <Snackbar
         anchorOrigin={{ vertical, horizontal }}
         open={Aberto}
@@ -224,8 +224,8 @@ function Senhas() {
         <Button
           type="submit"
           fullWidth
-          variant="contained"
-          color="secondary"
+          variant="outlined"
+          color="primary"
           className={classes.btn}
           onClick={() => abrir(true)}
         >

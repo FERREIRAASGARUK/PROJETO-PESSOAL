@@ -14,7 +14,7 @@ const classe = makeStyles({
   },
 
   imagem: {
-    background: 'blue',
+    background: 'white',
     margin: '2%',
     marginTop: '3%',
     marginBottom: '1%',
@@ -44,6 +44,7 @@ const classe = makeStyles({
   },
   title: {
     fontFamily: 'Arial',
+    color: "black "
   },
 });
 

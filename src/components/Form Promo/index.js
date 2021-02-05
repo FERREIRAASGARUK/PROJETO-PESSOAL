@@ -6,10 +6,11 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import Typography from '@material-ui/core/Typography';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import {
   AddToHomeScreen,
   AddPhotoAlternate,
-  AddShoppingCart,
+
   Title,
   MonetizationOn,
 } from '@material-ui/icons';
@@ -52,11 +53,11 @@ const Formulario = () => {
       title: Yup.string()
         .min(
           10,
-        <Typography color="error">digite no mínimo 10 caractéres</Typography>
+          <Typography color="error">digite no mínimo 10 caractéres</Typography>
         )
         .max(
           200,
-        <Typography color="error">digite no máximo 50 caractéres</Typography>
+          <Typography color="error">digite no máximo 50 caractéres</Typography>
         )
         .required(
           <Typography color="error">Este campo não pode ficar vazio</Typography>
@@ -91,7 +92,7 @@ const Formulario = () => {
       const datas = await api.get('/promotions');
       const promo = datas.data;
       const prod = promo.filter((e) => e.imageUrl === values.imageUrl);
-       
+
       async function verificar() {
         if (prod.length === 0) {
           await api.post('/promotions', { ...values, quantidade: 1, usuario: email });
@@ -111,7 +112,6 @@ const Formulario = () => {
 
   return (
     <div>
-    
       <Snackbar
         anchorOrigin={{ vertical, horizontal }}
         open={Aberto}
@@ -124,8 +124,8 @@ const Formulario = () => {
       </Snackbar>
       <Container component="main" maxWidth="sm">
         <div className={classes.paper}>
-          <Avatar className={classes.imagem}>
-            <AddShoppingCart />
+          <Avatar className={classes.imagem} >
+            <ShoppingCartIcon color='primary' />
           </Avatar>
           <h1 className={classes.title}>CADASTRE SEUS PRODUTOS</h1>
           <form onSubmit={formik.handleSubmit} className={classes.form}>
@@ -250,8 +250,8 @@ const Formulario = () => {
             <Button
               type="submit"
               fullWidth
-              variant="contained"
-              color="secondary"
+              variant="outlined"
+              color="primary"
               className={classes.btn}
               onClick={() => abrir(true)}
             >

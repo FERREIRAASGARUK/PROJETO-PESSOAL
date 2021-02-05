@@ -85,8 +85,8 @@ const classe = makeStyles({
     justifyContent: 'space-between',
     textDecoration: 'none',
   },
-  pai:{
-  background:'#ff4040',
+  pai: {
+    background: '#ff4040',
 
   }
 });

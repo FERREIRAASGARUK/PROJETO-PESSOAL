@@ -15,14 +15,18 @@ import Exit from '@material-ui/icons/ExitToApp';
 import { Link, useHistory } from 'react-router-dom';
 import estilo from './estilo';
 import { Usuario } from '../../Form Login/index';
+import Avatar from '@material-ui/core/Avatar'
+import { IconButton } from '@material-ui/core';
 
-function Botao() {
+function Botao(props) {
   let nome;
   const classes = estilo();
   const history = useHistory();
   const palavra = useContext(Usuario);
   const [anchorEl, setAnchorEl] = useState(null);
-  palavra.valid ? (nome = 'PROFILE') : (nome = 'ENTRAR');
+
+
+  palavra.valid ? (nome = props.image) : (nome = 'ENTRAR');
 
   function clicar(ev) {
     setAnchorEl(ev.currentTarget);
@@ -37,16 +41,18 @@ function Botao() {
 
   return (
     <div>
-      <Button
-        aria-controls="customized-menu"
-        aria-haspopup="true"
-        variant="outlined"
-        color="secondary"
-        style={{ marginTop: '20%' }}
-        onClick={clicar}
-      >
-        {nome}
-      </Button>
+      <IconButton onClick={clicar} size='medium'>
+        <Avatar
+
+          variant="outlined"
+          color="secondary"
+          style={{ marginTop: 2, height: 50, width: 50 }}
+          src={props.image}
+        >
+
+        </Avatar>
+      </IconButton>
+
       <Menu
         elevation={0}
         getContentAnchorEl={null}
@@ -70,14 +76,6 @@ function Botao() {
               <Person fontSize="small" />
             </ListItemIcon>
             <ListItemText primary="Profile" />
-          </MenuItem>
-        </Link>
-        <Link className={classes.itens} to="/Cart">
-          <MenuItem>
-            <ListItemIcon>
-              <Shooping fontSize="small" />
-            </ListItemIcon>
-            <ListItemText primary="Carrinho" />
           </MenuItem>
         </Link>
         <Link className={classes.itens} to="/Settings">

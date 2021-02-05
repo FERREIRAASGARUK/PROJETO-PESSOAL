@@ -6,8 +6,7 @@ import { Carrinho } from '../../components/Hooks/Produtos';
 const CadastroProducts = () => (
   <Carrinho>
     <Header />
-
-    <Cadastro />
+     <Cadastro />
   </Carrinho>
 );
 

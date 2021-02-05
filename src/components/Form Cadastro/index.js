@@ -74,7 +74,7 @@ const Formulario = () => {
         )
         .min(
           8,
-        <Typography color="error">Digite no minimo 8 dígitos</Typography>
+          <Typography color="error">Digite no minimo 8 dígitos</Typography>
         ),
     }),
 
@@ -92,8 +92,8 @@ const Formulario = () => {
       result === 'success'
         ? postar() && history.push('/')
         : result === 'error'
-        ? (mensagem = 'usuário já cadastrado, faça login')
-        : (mensagem = 'cadastro realizado');
+          ? (mensagem = 'usuário já cadastrado, faça login')
+          : (mensagem = 'cadastro realizado');
 
       setMessage(mensagem);
       setRetorno(result);

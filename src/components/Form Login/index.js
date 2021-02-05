@@ -13,6 +13,7 @@ import MuiAlert from '@material-ui/lab/Alert';
 import api from '../../Services/userServer';
 import classe from './style';
 
+
 export const Usuario = createContext();
 
 export const Validar = (props) => {
@@ -39,7 +40,7 @@ const Login = () => {
   const horizontal = 'left';
   const classes = classe();
 
-  function abrir(){
+  function abrir() {
     setAberto(true);
   }
   function fechar() {
@@ -56,7 +57,7 @@ const Login = () => {
       senha: Yup.string()
         .min(
           8,
-        <Typography color="error">digite no mínimo 8 caractéres</Typography>
+          <Typography color="error">digite no mínimo 8 caractéres</Typography>
         )
         .required(
           <Typography color="error">Este campo não pode ficar vazio</Typography>

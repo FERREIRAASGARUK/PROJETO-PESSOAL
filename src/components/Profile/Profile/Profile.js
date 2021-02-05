@@ -1,4 +1,4 @@
-import React, { useState,useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { Avatar, Grid, Paper } from '@material-ui/core';
 import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
@@ -6,8 +6,8 @@ import Header from '../../Header/header';
 import style from './style.js';
 import api from '../../../Services/cardServer';
 import Produtos from './Produtos/produtos';
-import {Products} from '../Profile/Produtos/produtos'
-import  {profileImg} from '../Setings/Settings'
+import { Products } from '../Profile/Produtos/produtos'
+import { profileImg } from '../Setings/Settings'
 
 
 function Profile() {
@@ -22,10 +22,10 @@ function Profile() {
   let prod;
   let user;
   let User;
-  const verifyProducts =  useContext(Products)
+  const verifyProducts = useContext(Products)
 
-const [products, setProducts] = useState([]);
-async function Buscar() {
+  const [products, setProducts] = useState([]);
+  async function Buscar() {
     user = localStorage.getItem('login');
     User = JSON.parse(user);
 
@@ -34,7 +34,7 @@ async function Buscar() {
     produto = produtos.filter((e) => e.usuario === User.email);
     setProducts(produto);
 
-}
+  }
 
 
   return (
@@ -55,11 +55,11 @@ async function Buscar() {
                 }}
               />
               <Grid item xl={15} className={estilo.grid11}>
-                <h1 style={{ fontFamily: 'Arial' ,color:'black'}}>{dados.firstName}</h1>
+                <h1 style={{ fontFamily: 'Arial', color: 'black' }}>{dados.firstName}</h1>
                 <Grid item xs={15} className={estilo.grid111} />
               </Grid>
             </Grid>
-               <Produtos/>
+            <Produtos />
           </Paper>
         </Grid>
       </Container>

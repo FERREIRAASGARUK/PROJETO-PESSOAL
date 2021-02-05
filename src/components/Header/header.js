@@ -6,7 +6,8 @@ import { IconButton, Paper } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCart from '@material-ui/icons/ShoppingCartOutlined';
 import Popover from '@material-ui/core/Popover';
-import DeleteIcon from '@material-ui/icons/Delete';
+import Add from '@material-ui/icons/AddCircleOutline';
+import Remove from '@material-ui/icons/RemoveCircleOutline';
 import Button from '@material-ui/core/Button';
 import Btn from './Button/Button2';
 import Botao from './Button/Button';
@@ -18,10 +19,10 @@ import api from '../../Services/userServer';
 import Api from '../../Services/products';
 import MuiAlert from '@material-ui/lab/Alert';
 import Snackbar from '@material-ui/core/Snackbar'
+import { profileImg } from '../Profile/Setings/Settings'
+
 const Header = () => {
-
-
-   function Alert(props) {
+  function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
   }
 
@@ -40,41 +41,55 @@ const Header = () => {
   const [total, setTotal] = useState(0);
   const [value, setValue] = useState(0)
   const Cart = useContext(Produtos);
+  const profile = useContext(profileImg)
+
 
   const handleClose = () => {
     setOpen(false);
   };
 
-     async function atualizar(props){ 
-        props.quantidade =  props.quantidade -1
-        Cart.setProduto(props.quantidade)
-        
-    return ( 
-      
-      await Api.put(`http://localhost:2000/products/${props.id}`,props)
-      
-      )}
+  async function atualizar(props) {
+    props.quantidade = props.quantidade - 1
+    Cart.setProduto(props.quantidade)
 
-        async function deletar(props){ 
-        props.quantidade =  props.quantidade -1
-        Cart.setProduto(props.quantidade)
-        
-        return ( 
-          
-          await Api.delete(`/products/${props.id}`)
-          
-          )}
+    return (
+
+      await Api.put(`http://localhost:2000/products/${props.id}`, props)
+
+    )
+  }
+  async function aumentar(props) {
+    props.quantidade = props.quantidade + 1
+    Cart.setProduto(props.quantidade)
+
+    return (
+
+      await Api.put(`http://localhost:2000/products/${props.id}`, props)
+
+    )
+  }
+
+  async function deletar(props) {
+    props.quantidade = props.quantidade - 1
+    Cart.setProduto(props.quantidade)
+
+    return (
+
+      await Api.delete(`/products/${props.id}`)
+
+    )
+  }
 
 
   async function remover(elemento) {
-    
-    
-     setValue(value + 1)
-     elemento.quantidade === 0 ? deletar(elemento) : atualizar(elemento)
-      
+
+
+    setValue(value + 1)
+    elemento.quantidade === 0 ? deletar(elemento) : atualizar(elemento)
+
 
   }
-    function fechar() {
+  function fechar() {
     setAberto(false);
   }
 
@@ -87,8 +102,8 @@ const Header = () => {
     history.push('/');
   }
 
-  function Verificar() {
-    return user.valid ? <Botao /> : <Btn />;
+  function Verificar(props) {
+    return user.valid ? <Botao image={props.image} /> : <Btn />;
   }
 
   async function cart() {
@@ -98,31 +113,35 @@ const Header = () => {
     const produtos = prodsValids.filter(e => {
       return (
         e.Usuario === id.id
-        
+
       )
     })
 
     produtos ? setElementos(produtos) : setElementos(null);
-   
+
+
   }
 
- 
+
+
+
 
 
 
   const abrir = () => {
+    history.push('/')
     user.valid ? setOpen(true) : setAberto(true)
-    
-    
-    return(
-    setValue(value + 1))
-    
+
+
+    return (
+      setValue(value + 1))
+
   }
-  
+
   useEffect(() => {
     cart()
-    
-    
+
+
   }, [value])
 
 
@@ -131,16 +150,16 @@ const Header = () => {
 
   return (
     <div>
-       <Snackbar
-          anchorOrigin={{ vertical, horizontal }}
-          open={Aberto}
-          onClose={fechar}
-          autoHideDuration={5000}
-        >
-          <Alert severity='error'>
-            <div>{'Faça login para acessar o carrinho de compras'}</div>
-          </Alert>
-        </Snackbar>
+      <Snackbar
+        anchorOrigin={{ vertical, horizontal }}
+        open={Aberto}
+        onClose={fechar}
+        autoHideDuration={5000}
+      >
+        <Alert severity='error'>
+          <div>{'Faça login para acessar o carrinho de compras'}</div>
+        </Alert>
+      </Snackbar>
 
       <Grid className={estilo.header} container spacing={0}>
         <Grid item xs={2}>
@@ -178,6 +197,7 @@ const Header = () => {
         </div>
 
         {console.log(elemento)}
+
         <Popover open={Open} onClose={handleClose} className={estilo.carrinho}>
           {elemento &&
             elemento.map((e) =>
@@ -211,13 +231,16 @@ const Header = () => {
                       }}
                     >
                       <IconButton onClick={() => remover(e)} className={estilo.btn}>
-                       <DeleteIcon/>
+                        <Remove />
+                      </IconButton>
+                      <IconButton onClick={() => aumentar(e)} className={estilo.btn}>
+                        <Add />
                       </IconButton>
                     </div>
 
                     <div className={estilo.valor}>
                       <Typography style={{ fontWeight: 1000 }}>
-                        
+
                         {(e.quantidade).toFixed(0)}
                       </Typography>
                     </div>
@@ -227,25 +250,19 @@ const Header = () => {
             ))}
 
           <div className={estilo.footer}>
-            {
-              elemento ?
-                <Button
-                  variant="contained"
-                  className={estilo.finalizar}
-                >
-                  Finalizar
-            </Button> :
-                <div className={estilo.vazio}>
-                  Você ainda não tem produtos no carrinho
-                </div>
-            }
-
-           
+            <Link to='/Cart' style={{ textDecoration: 'none' }}>
+              <Button
+                variant="contained"
+                className={estilo.finalizar}
+              >
+                Finalizar
+            </Button>
+            </Link>
           </div>
         </Popover>
 
         <Grid item xs={1}>
-          <Verificar />
+          <Verificar image={profile.image} />
         </Grid>
       </Grid>
     </div>

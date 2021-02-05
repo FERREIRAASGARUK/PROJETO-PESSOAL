@@ -32,48 +32,52 @@ function Card() {
     const response = await api.get(urls);
     setCards(response.data);
   }
-    async function adicionar(props) {
+
+  
+  async function adicionar(props) {
 
     const currentUser = JSON.parse(localStorage.getItem('login'));
     const validar = await Api.get(`/products`)
-    const semelhante = validar.data.filter( e =>{
-     return(e.title === props.title && currentUser.id === e.Usuario)
+    const semelhante = validar.data.filter(e => {
+      return (e.title === props.title && currentUser.id === e.Usuario)
     })
-    
+
     console.log(semelhante)
-    
+
     props.Usuario = currentUser.id;
-  
- 
-    async function atualizar(){ 
-        props.quantidade =  props.quantidade + 1
-        Cart.setProduto(props.quantidade)
-        console.log(Cart.p)
-    return ( 
-     
-      await Api.put(`http://localhost:2000/products/${props.id}`,props)
-      
-      )}
-
-  
-      async function postar(){ 
-          props.id = props.id+10
-          Cart.setProduto(props.quantidade)
-          console.log(Cart.produto)
-    return ( 
-
-      await Api.post(`http://localhost:2000/products`,props)
-      )}
 
 
-    User.valid &&                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
-    semelhante.length >= 1 ? atualizar()  :  postar();
-    
-    
-    
-    
-      
-    
+    async function atualizar() {
+      props.quantidade = props.quantidade + 1
+      Cart.setProduto(props.quantidade)
+      console.log(Cart.p)
+      return (
+
+        await Api.put(`http://localhost:2000/products/${props.id}`, props)
+
+      )
+    }
+
+
+    async function postar() {
+      props.id = props.id + 3
+      Cart.setProduto(props.quantidade)
+      console.log(Cart.produto)
+      return (
+
+        await Api.post(`http://localhost:2000/products`, props)
+      )
+    }
+
+
+    User.valid &&
+      semelhante.length >= 1 ? atualizar() : postar();
+
+
+
+
+
+
   }
   return (
     <div>
