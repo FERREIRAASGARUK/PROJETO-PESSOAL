@@ -49,21 +49,12 @@
       "quantidade": 1
     },
     {
-      "title": "Notebook Gamer Acer Nitro 5 AN515-54-58CL Intel Core i5 8GB 1TB HD 128GB SSD GTX 1650 15.6'",
+      "title": "Fones de ouvido Xiaome, AirDots",
       "price": 113.33123,
       "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61IP%2BRNgTKL._AC_SL1500_.jpg",
       "url": "https://www.amazon.com.br/Fones-Ouvido-Xiaomi-AirDots-Lan%C3%A7amento/dp/B087N2DZFQ/ref=pd_vtp_4?pd_rd_w=Ad3uc&pf_rd_p=457ecbe4-62ec-458e-93c5-9db268725194&pf_rd_r=YWR7PV3ZMBHD7C19TCF6&pd_rd_r=31db630e-c6c8-42f7-bfa1-66c90f1259b7&pd_rd_wg=TnxgZ&pd_rd_i=B087N2DZFQ&psc=1",
       "usuario": "marcusviniciusmtarazzo@gmail.com",
       "id": 8,
-      "quantidade": 1
-    },
-    {
-      "title": "Notebook Gamer Acer Nitro 5 AN515-54-58CL Intel Co",
-      "price": 113.33123,
-      "imageUrl": "https://www.extra-imagens.com.br/Control/ArquivoExibir.aspx?IdArquivo=1295830988",
-      "url": "https://br-store.acer.com/notebook-acer-an515-54-58cl-ci59300h-8gb-nva-4gb-128gb-ssd-1tb-hdd-elinux-black-fhd-15-6-nh-q6pal-00b/p?awc=18878_1609956385_00c8ef05a45134bc578d7c0a389e20e2&utm_source=Awin&utm_source=aw&awc=15530_1609958029_391ee51f660e3d5937548f0367f12a31&utm_medium=Awin&utm_campaign=667929",
-      "usuario": "marcusviniciusmatarazzo@gmail.com",
-      "id": 9,
       "quantidade": 1
     },
     {
@@ -110,6 +101,15 @@
       "quantidade": 1,
       "usuario": "mail@gmail.com",
       "id": 14
+    },
+    {
+      "title": "Livro A Chave Mestra do Universo - Pablo Marçal Capa comum – 1",
+      "price": -1,
+      "imageUrl": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQINc9Ufyby0bdx_jISHWvtoqg3zR1YuLAJ4mpXFsOyxGeqXCwruOKqDM8IpIAMq9ACo6Cou_TBfAA&usqp=CAc",
+      "url": "https://www.amazon.com.br/Livro-Chave-Mestra-Universo-Mar%C3%A7al/dp/B07WCC6S1B/ref=asc_df_B07WCC6S1B/?tag=googleshopp00-20&linkCode=df0&hvadid=379765936028&hvpos=&hvnetw=g&hvrand=7396631523194072076&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1001552&hvtargid=pla-932212751706&psc=1",
+      "quantidade": 1,
+      "usuario": "mail@gmail.com",
+      "id": 15
     }
   ],
   "comments": [

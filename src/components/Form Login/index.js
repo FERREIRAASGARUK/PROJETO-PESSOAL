@@ -83,12 +83,10 @@ const Login = () => {
         (e) => e.email === values.email && e.senha === values.senha
       );
       result[0] ? (retorno = 'success') : (retorno = 'error');
-      retorno === 'success'
-        ? (mensagem = 'Login realizado')
-        : (mensagem = 'Usuário ou senha incorreta');
+      retorno === 'success' ? (mensagem = 'Login realizadao') : (mensagem = 'Usuário ou senha incorreta');
       retorno === 'success' && (validar = result[0]);
       retorno === 'success' && history.push('/');
-      localStorage.setItem('login', JSON.stringify(result[0]));
+      result[0] && localStorage.setItem('login', JSON.stringify(result[0]));
       contexto.setValid(validar);
       setMsg(mensagem);
       setResult(retorno);

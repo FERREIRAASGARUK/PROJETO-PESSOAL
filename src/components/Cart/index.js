@@ -27,6 +27,7 @@ function Cart() {
   function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
   }
+
   function abrir() {
     setAberto(true);
   }
@@ -67,7 +68,9 @@ function Cart() {
       )
     })
     produtos ? setElementos(produtos) : setElementos(null);
-    console.log(elemento)
+    produtos.length > 0 ? setMsg('Pedido realizado') : setMsg('Você ainda não tem produtos cadastrados')
+    produtos.length > 0 ? setResult('success') : setResult('error')
+    console.log(result)
   }
   useEffect(() => { cart() }, [value])
 
@@ -84,8 +87,8 @@ function Cart() {
           onClose={fechar}
           autoHideDuration={5000}
         >
-          <Alert severity='success'>
-            <div>{'PEDIDO REALIZADO '}</div>
+          <Alert severity={result}>
+            <div>{msg}</div>
           </Alert>
         </Snackbar>
 

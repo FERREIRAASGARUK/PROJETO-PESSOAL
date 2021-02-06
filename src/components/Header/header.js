@@ -93,14 +93,15 @@ const Header = () => {
     setAberto(false);
   }
 
-
-  function setar(event) {
-    setSearch(event.target.value);
-  }
   function mudar() {
     contexto.setPesquisa(search);
     history.push('/');
   }
+  function setar(event) {
+    setSearch(event.target.value);
+    mudar()
+  }
+
 
   function Verificar(props) {
     return user.valid ? <Botao image={props.image} /> : <Btn />;
@@ -185,7 +186,7 @@ const Header = () => {
               inputProps={{ 'aria-label': 'search google maps' }}
               onChange={setar}
             />
-            <IconButton style={{ padding: 10 }} onClick={() => mudar()}>
+            <IconButton style={{ padding: 10 }} onClick={() => mudar()  }>
               <SearchIcon />
             </IconButton>
           </Paper>

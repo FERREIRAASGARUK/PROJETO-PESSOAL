@@ -55,7 +55,7 @@ function Profile() {
                 }}
               />
               <Grid item xl={15} className={estilo.grid11}>
-                <h1 style={{ fontFamily: 'Arial', color: 'black' }}>{dados.firstName}</h1>
+                <h1 style={{ fontFamily: 'Arial', color: 'black' }}>{ }</h1>
                 <Grid item xs={15} className={estilo.grid111} />
               </Grid>
             </Grid>

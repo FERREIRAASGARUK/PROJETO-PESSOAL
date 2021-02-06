@@ -78,6 +78,7 @@ const Settings = () => {
             usuario[0] ? setMsg('Já existe uma conta cadastrada com este email , digite um email novo') : setMsg('Imagem atualizada')
             usuario[0] ? setRetorno('error') : setRetorno('success')
             usuario[0] && localStorage.setItem('login', (JSON.stringify(user)))
+            console.log(usuario[0].firstName)
         }
         buscarUser()
         abrir()
